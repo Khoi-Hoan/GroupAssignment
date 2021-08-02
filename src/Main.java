@@ -1,4 +1,3 @@
-import java.net.*;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,6 +33,27 @@ class Data {
         this.people_vaccinated = people_vaccinated;
         this.population = population;
     }
+
+    public String getIso_code() {
+        return iso_code;
+    }
+
+    public int getNew_case() {
+        return new_case;
+    }
+
+    public float getNew_death() {
+        return new_death;
+    }
+
+    public float getPeople_vaccinated() {
+        return people_vaccinated;
+    }
+
+    public float getPopulation() {
+        return population;
+    }
+
     public void display(){
         System.out.println(iso_code + " " + continent + " " + location + " " + date + " " + new_case + " " + new_death + " " + people_vaccinated + " " + population);
     }
@@ -41,8 +61,7 @@ class Data {
 
     //read file and create object based on data then put it in the array
     public static HashMap<String, Data> readFile() throws IOException, ParseException {
-        URL url = new URL("https://raw.githubusercontent.com/TriDang/cosc2081/main/assignments/project/covid-data.csv");
-        BufferedReader read = new BufferedReader(new InputStreamReader(url.openStream()));
+        BufferedReader read = new BufferedReader(new FileReader("Data.txt"));
         String i;
         HashMap<String, Data> information = new HashMap<>();
         int count = 0;
