@@ -3,7 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-
+import java.util.Arrays;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         HashMap<String, Data> dataHashMap = Data.readFile();
@@ -58,7 +58,9 @@ class Data {
         System.out.println(iso_code + " " + continent + " " + location + " " + date + " " + new_case + " " + new_death + " " + people_vaccinated + " " + population);
     }
 
+    public static void read_amount(int the_index_length){
 
+    }
     //read file and create object based on data then put it in the array
     public static HashMap<String, Data> readFile() throws IOException, ParseException {
         BufferedReader read = new BufferedReader(new FileReader("Data.txt"));
@@ -80,23 +82,30 @@ class Data {
                 int new_death = 0;
                 int people_vaccinated = 0;
                 float population = 0;
-                if(!s[4].equals("")) {
+                System.out.println(Arrays.toString(s));
+//                System.out.println(s[4]);
+//                System.out.println(s[5]);
+//                System.out.println(s[6]);
+//                System.out.println(s[7]);
+                if(s.length >= 5 && !s[4].equals("")) {
                     new_case = Integer.parseInt(s[4]);
                 }
+
 //                System.out.println(e);
-                if(!s[5].equals("")) {
+                if(s.length >= 6 && !s[5].equals("")) {
                     new_death = Integer.parseInt(s[5]);
                 }
 //                System.out.println(f);
-                if(!s[6].equals("")) {
+                if(s.length >= 7 && !s[6].equals("")) {
                     people_vaccinated = Integer.parseInt(s[6]);
                 }
-                if(!s[7].equals("")) {
+                if(s.length >= 8 && !s[7].equals("")) {
                     population = Float.parseFloat(s[7]);
+                    System.out.println(" "+population + " ");
                 }
 //                System.out.println(g);
                 Data newData = new Data(iso_code, continent, location, date, new_case, new_death, people_vaccinated, population);
-                newData.display();
+//                newData.display();
                 information.put(s[2] + s[3] ,newData);
             }
             count++;
