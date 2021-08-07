@@ -82,7 +82,7 @@ class Data {
                 int new_death = 0;
                 int people_vaccinated = 0;
                 float population = 0;
-                System.out.println(Arrays.toString(s));
+//                System.out.println(Arrays.toString(s));
 //                System.out.println(s[4]);
 //                System.out.println(s[5]);
 //                System.out.println(s[6]);
@@ -101,7 +101,7 @@ class Data {
                 }
                 if(s.length >= 8 && !s[7].equals("")) {
                     population = Float.parseFloat(s[7]);
-                    System.out.println(" "+population + " ");
+ //                   System.out.println(" "+population + " ");
                 }
 //                System.out.println(g);
                 Data newData = new Data(iso_code, continent, location, date, new_case, new_death, people_vaccinated, population);
@@ -111,9 +111,6 @@ class Data {
             count++;
         }
         read.close();
-        for (String data : information.keySet() ) {
-            information.get(data).display();
-        }
         return information;
     }
 }
