@@ -1,6 +1,7 @@
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Arrays;
@@ -113,4 +114,15 @@ class Data {
         read.close();
         return information;
     }
-}
+
+
+    public static int sumDataINArrayList(ArrayList<Integer> numbers){
+        int sum = 0;
+        for(int i = 0; i<numbers.size(); i++){
+            sum+=numbers.get(i);
+        }
+        return sum;
+    }}
+
+
+
