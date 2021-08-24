@@ -2,15 +2,13 @@ import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.*;
 import java.time.format.DateTimeFormatter;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         HashMap<String, Data> dataHashMap = Data.readFile();
         dataHashMap.size();
+
     }
 }
 
@@ -105,13 +103,38 @@ class Data {
         return information;
     }
 
+    // Get user option
+    public static Scanner userOption(){
+        System.out.println("There are three option:");
+        System.out.println("1)New Cases");
+        System.out.println("2)New Deaths");
+        System.out.println("3)People Vaccinated");
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Your option is ");
+        String option= sc.next();
+        return userOption();
+    }
+// this function can get the metric and the total case, death
     public static int sumDataINArrayList(ArrayList<Integer> numbers){
         int sum = 0;
         for(int i = 0; i<numbers.size(); i++){
             sum+=numbers.get(i);
         }
         return sum;
-    }}
+    }
+
+// this function can get data from vaccine column
+    public static int[] subtractData(int[] lastDay,int[] firstDay){
+       int[] equal = new int[0];
+        for (int i=0;i<lastDay.length;i++){
+                equal[i]=lastDay[i]-firstDay[i];
+            }
+            return equal;
+        }
+
+    }
+
+
 
 
 
