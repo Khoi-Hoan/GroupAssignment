@@ -31,7 +31,7 @@ public class Main {
         while (true) {
             System.out.print("Your option: ");
             int op = sc.nextInt();
-            if (op > 2 || op < 1) {
+            if (op != 1 && op != 2) {
                 System.out.println("There is an error in your option");
                 System.out.println("Please choose the available number of the option");
             } else {
