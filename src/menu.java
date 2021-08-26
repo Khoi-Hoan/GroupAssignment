@@ -60,9 +60,9 @@ public class menu {
         List<List<Data>> Group = new ArrayList<>();
         System.out.print("""
                 Please choose 1 out of 3 option to select to get the data.\s
-                1. Start date and end date
-                2. A number of days or weeks from a particular date
-                3. A number of days or weeks to a particular date
+                1. No grouping
+                2. Number of groups
+                3. Number of days
                 """);
         int group_type_input = Integer.parseInt(sc.nextLine());
         if (group_type_input  == 1){
