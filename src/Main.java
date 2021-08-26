@@ -1,4 +1,5 @@
 import java.io.*;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -9,6 +10,79 @@ public class Main {
         HashMap<String, Data> dataHashMap = Data.readFile();
         dataHashMap.size();
 
+    }
+
+    public static int chooseCalculationWay() {
+        System.out.println("There are 2 way");
+        System.out.println("1. New Total");
+        System.out.println("2. Up To");
+        return chooseBetween2();
+    }
+
+    public static int chooseDisplayWay() {
+        System.out.println("There are 2 way");
+        System.out.println("1. Tabular Display");
+        System.out.println("2. Chart Display");
+        return chooseBetween2();
+        }
+
+    public static int chooseBetween2() {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("Your option: ");
+            int op = sc.nextInt();
+            if (op > 2 || op < 1) {
+                System.out.println("There is an error in your option");
+                System.out.println("Please choose the available number of the option");
+            } else {
+                return op;
+            }
+        }
+    }
+
+    public static String askForArea(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Location: ");
+        return sc.nextLine();
+    }
+
+    public static Date[] askForDate(){
+        boolean n =true;
+        Date[] time = new Date[2];
+        Scanner sc = new Scanner(System.in);
+        while (n) {
+            System.out.print("Start date(MM/dd/yyyy): ");
+            String start = sc.nextLine();
+            try {
+                Date staDate = new SimpleDateFormat("MM/dd/yyyy").parse(start);
+                time[0] = staDate;
+                n = false;
+            } catch (ParseException e) {
+                System.out.print("Error date pls try again");
+            }
+        }
+        n = true;
+        while (n) {
+            System.out.print("End date(MM/dd/yyyy): ");
+            String start = sc.nextLine();
+            try {
+                Date endDate = new SimpleDateFormat("MM/dd/yyyy").parse(start);
+                time[1] = endDate;
+                n = false;
+            } catch (ParseException e) {
+                System.out.print("Error date pls try again");
+            }
+        }
+        return time;
+    }
+
+    public static Date stringToDate(String str) throws ParseException {
+        return new SimpleDateFormat("MM/dd/yyyy").parse(str);
+    }
+
+    public static String dateToString(Date date) throws ParseException {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        return dateFormat.format(date);
     }
 }
 
@@ -114,6 +188,7 @@ class Data {
         String option= sc.next();
         return userOption();
     }
+
 // this function can get the metric and the total case, death
     public static int sumDataINArrayList(ArrayList<Integer> numbers){
         int sum = 0;
