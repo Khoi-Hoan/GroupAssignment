@@ -9,8 +9,10 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         HashMap<String, Data> dataHashMap = Data.readFile();
         dataHashMap.size();
+        boolean n = true;
 
     }
+
 
     public static int chooseCalculationWay() {
         System.out.println("There are 2 way");
@@ -83,6 +85,32 @@ public class Main {
     public static String dateToString(Date date) throws ParseException {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         return dateFormat.format(date);
+    }
+    // Get user option
+    public static int userResultOption() {
+        System.out.println("Choose between 3 of this to get the metric you want");
+        System.out.println("1)New Cases");
+        System.out.println("2)New Deaths");
+        System.out.println("3)People Vaccinated");
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("Your option: ");
+            int op = sc.nextInt();
+            if (op != 1 && op != 2 && op != 3) {
+                System.out.println("There is an error in your option");
+                System.out.println("Please choose the available number of the option");
+            } else {
+                return op;
+            }
+        }
+    }
+
+    public static int sumDataINArrayList(ArrayList<Integer> numbers) {
+        int sum = 0;
+        for (Integer number : numbers) {
+            sum += number;
+        }
+        return sum;
     }
 }
 
@@ -177,31 +205,8 @@ class Data {
         read.close();
         return information;
     }
-
-    // Get user option
-    public static Scanner userOption() {
-        System.out.println("There are three option:");
-        System.out.println("1)New Cases");
-        System.out.println("2)New Deaths");
-        System.out.println("3)People Vaccinated");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Your option is ");
-        String option = sc.next();
-        return userOption();
-    }
-
-
-    // this function can get the metric and the total case, death
-    public static int sumDataINArrayList(ArrayList<Integer> numbers) {
-        int sum = 0;
-        for (int i = 0; i < numbers.size(); i++) {
-            sum += numbers.get(i);
-        }
-        return sum;
-    }
 }
 
-// this function can get data from vaccine column
 
 
 
