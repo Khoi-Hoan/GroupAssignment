@@ -41,11 +41,11 @@ public class Chart {
         System.out.println(yDistance);
         int xPos = xDistance / 2;
         int recentValue;
-        for (int value = 0; value < values.size(); value++){
+        for (Integer value : values) {
             recentValue = minValue;
             for (int yPos = 1; yPos < 24; yPos++) {
-                if ( xPos < 80) {
-                    if (recentValue <= values.get(value)){
+                if (xPos < 80) {
+                    if (recentValue <= value) {
                         recentValue += yDistance;
                         chart[yPos][xPos] = "*";
                     }
