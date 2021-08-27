@@ -3,11 +3,11 @@ import java.util.*;
 public class Chart {
     public static void main(String[] args) {
         ArrayList<Integer> i = new ArrayList<>();
-        i.add(5524);
-        i.add(4654);
-        i.add(1765);
-        i.add(1740);
-        i.add(1862);
+        i.add(4324);
+        i.add(1645);
+        i.add(845);
+        i.add(2748);
+        i.add(1944);
         chartDisplay(chart(i));
     }
     public static String[][] chart(ArrayList<Integer> values){
@@ -34,7 +34,7 @@ public class Chart {
         System.out.println(minValue);
         int maxValue = values.get(maxIndex(values));
         System.out.println(maxValue);
-        int yDistance = (maxValue - minValue) /24;
+        int yDistance = (maxValue - minValue) / 24;
         if (yDistance < 1){
             yDistance = 1;
         }
@@ -46,7 +46,7 @@ public class Chart {
             for (int yPos = 1; yPos < 24; yPos++) {
                 if ( xPos < 80) {
                     if (recentValue <= values.get(value)){
-                        recentValue += xDistance;
+                        recentValue += yDistance;
                         chart[yPos][xPos] = "*";
                     }
                 }
