@@ -21,7 +21,7 @@ public class Chart {
                     chart[j][i]= "|";
                 }
                 else {
-                    chart[j][i]= "";
+                    chart[j][i]= " ";
                 }
             }
         }
