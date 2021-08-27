@@ -87,23 +87,7 @@ public class Main {
         return dateFormat.format(date);
     }
     // Get user option
-    public static int userResultOption() {
-        System.out.println("Choose between 3 of this to get the metric you want");
-        System.out.println("1)New Cases");
-        System.out.println("2)New Deaths");
-        System.out.println("3)People Vaccinated");
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.print("Your option: ");
-            int op = sc.nextInt();
-            if (op != 1 && op != 2 && op != 3) {
-                System.out.println("There is an error in your option");
-                System.out.println("Please choose the available number of the option");
-            } else {
-                return op;
-            }
-        }
-    }
+
 
     public static int sumDataINArrayList(ArrayList<Integer> numbers) {
         int sum = 0;
@@ -138,23 +122,30 @@ class Data {
     }
 
     public String getIso_code() {
-        return iso_code;
+        return this.iso_code;
     }
 
+    public String getLocation(){return this.location;}
     public int getNew_case() {
-        return new_case;
+        return this.new_case;
+    }
+    public void setPeople_vaccinated(int people_vaccinated){
+        this.people_vaccinated = people_vaccinated;
+    }
+    public LocalDate getDate(){
+        return this.date;
     }
 
-    public float getNew_death() {
-        return new_death;
+    public int getNew_death() {
+        return this.new_death;
     }
 
-    public float getPeople_vaccinated() {
-        return people_vaccinated;
+    public int getPeople_vaccinated() {
+        return this.people_vaccinated;
     }
 
     public float getPopulation() {
-        return population;
+        return this.population;
     }
 
     public void display() {
