@@ -1,36 +1,32 @@
+
 import java.util.ArrayList;
 
+
 public class tabular {
-    public static void main(String[] args) {
-        String[][] table = new String[17][];
-        table[0] = new String[]{"2", "5", "123522"};
-        table[1] = new String[]{"5312132", "425345", "1535254"};
-        table[2] = new String[]{"434983", "123535", "474453"};
-        table[3] = new String[]{"213454534", "5232323", "2"};
-        table[4] = new String[]{"2", "5", "123522"};
-        table[5] = new String[]{"5312132", "425345", "1535254"};
-        table[6] = new String[]{"434983", "123535", "474453"};
-        table[7] = new String[]{"213454534", "5232323", "2"};
-        table[8] = new String[]{"5312132", "425345", "1535254"};
-        table[9] = new String[]{"434983", "123535", "474453"};
-        table[10] = new String[]{"213454534", "52332323", "2"};
-        table[11] = new String[]{"5312132", "425345", "1535254"};
-        table[12] = new String[]{"4344983", "123535", "474453"};
-        table[13] = new String[]{"213454534", "52324323", "2"};
-        table[14] = new String[]{"5312132", "425345", "1535254"};
-        table[15] = new String[]{"434983", "1235435", "4744453"};
-        table[16] = new String[]{"213454534", "5232323", "2"};
-        tabularDisplay(table);
+    public static void main(String[] args)  {
+        ArrayList<String> date1 = new ArrayList<>();
+        date1.add("02/13/2021");
+        date1.add("02/21/2021");
+        date1.add("02/31/2021");
+        ArrayList<String> date2 = new ArrayList<>();
+        date2.add("02/16/2021");
+        date2.add("02/16/2021");
+        date2.add("03/31/2021");
+        ArrayList<Integer> value = new ArrayList<>();
+        value.add(32132143);
+        value.add(92135321);
+        value.add(74266321);
+        tabularDisplay(date1,date2,value);
     }
         // create table form
-        public static void tabularDisplay(String[][] tabular){
+        public static void tabularDisplay(ArrayList<String> date1,ArrayList<String> date2,ArrayList<Integer> value){
         System.out.println("-----------------------------------------------------------");
         System.out.format("%c %21s %13c %10s %10c\n",'|', "Range(date 1- date 2)", '|', "Value",'|');
         System.out.println("|---------------------------------------------------------|");
         // insert data into table
-        for (int i = 0; i < tabular.length; i++) {
-            Object[] row = tabular[i];
-            System.out.format("%c %9s %4c %9s %10c %9s %11c\n",'|', row[0],'-', row[1], '|', row[2],'|');
+        for (int i = 0; i < date1.size(); i++) {
+
+            System.out.format("%c %9s %c %9s %11c %12s %8c\n",'|', date1.get(i),'-', date2.get(i), '|', value.get(i),'|');
         }
         System.out.println("-----------------------------------------------------------");
     }
