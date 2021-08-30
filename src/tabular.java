@@ -21,7 +21,7 @@ public class tabular {
         // create table form
         public static void tabularDisplay(ArrayList<String> date1,ArrayList<String> date2,ArrayList<Integer> value){
         System.out.println("-----------------------------------------------------------");
-        System.out.format("%c %21s %13c %10s %10c\n",'|', "Range(date 1- date 2)", '|', "Value",'|');
+        System.out.format("%c %21s %6c %10s %10c\n",'|', "Range(First date- Last date)", '|', "Value",'|');
         System.out.println("|---------------------------------------------------------|");
         // insert data into table
         for (int i = 0; i < date1.size(); i++) {
