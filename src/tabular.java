@@ -20,6 +20,7 @@ public class tabular {
     }
         // create table form
         public static void tabularDisplay(ArrayList<String> date1,ArrayList<String> date2,ArrayList<Integer> value){
+        // Making table form
         System.out.println("-----------------------------------------------------------");
         System.out.format("%c %21s %6c %10s %10c\n",'|', "Range(First date- Last date)", '|', "Value",'|');
         System.out.println("|---------------------------------------------------------|");
