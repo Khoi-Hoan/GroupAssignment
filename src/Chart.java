@@ -3,11 +3,11 @@ import java.util.*;
 public class Chart {
     public static void main(String[] args) {
         ArrayList<Integer> i = new ArrayList<>();
-        i.add(4324);
-        i.add(1645);
-        i.add(845);
-        i.add(2748);
-        i.add(1944);
+        i.add(4);
+        i.add(16);
+        i.add(8);
+        i.add(26);
+        i.add(19);
         chartDisplay(chart(i));
     }
     public static String[][] chart(ArrayList<Integer> values){
@@ -34,7 +34,7 @@ public class Chart {
         System.out.println(minValue);
         int maxValue = values.get(maxIndex(values));
         System.out.println(maxValue);
-        int yDistance = (maxValue - minValue) / 24;
+        int yDistance = (maxValue - minValue) / 23;
         if (yDistance < 1){
             yDistance = 1;
         }
