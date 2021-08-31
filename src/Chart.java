@@ -40,6 +40,7 @@ public class Chart {
         }
         System.out.println(yDistance);
         int xPos = xDistance / 2;
+        if (xPos == 0) {xPos = 1;}
         int recentValue;
         for (Integer value : values) {
             recentValue = minValue;
