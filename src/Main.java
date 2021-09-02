@@ -195,6 +195,24 @@ class Data {
         }
         read.close();
         return information;
+        
+        public class Arraylist1 {
+            DataDisplay display = new TabularDisplay();
+            display.display();
+        }
+        Public class Arraylist2 {
+            File txt = new File("data.txt");
+                Scanner scan = new Scanner(txt);
+                ArrayList<String> data = new ArrayList<String>() ;
+            while(scan.hasNextLine()){
+                data.add(scan.nextLine());
+            }
+            System.out.println(data);
+            String[] simpleArray = data.toArray(new String[]{});
+        }
+        
+        public class Storingvalues {
+        }
     }
 }
 
