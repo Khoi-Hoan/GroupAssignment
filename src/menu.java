@@ -91,7 +91,7 @@ public class menu {
                     while (correct_input) {
                         System.out.println("Please enter the amount of days you want to have inside a group: ");
                         number_of_group = Integer.parseInt(sc.nextLine());
-                        if (date_being_used.size() % number_of_group == 0) {
+                        if (List_of_data_being_used.size() % number_of_group == 0) {
                             correct_input = false;
                         } else {
                             System.out.println("You can't divide the chosen amount of date to your given number, please try again");
@@ -134,14 +134,12 @@ public class menu {
                         for (List<Data> smaller_list : Group) {
                             int vaccinated_amount = get_up_to_vaccinated(smaller_list, smallest_value);
                             value_list.add(vaccinated_amount);
-                            break;
                         }
                     }
                     if (metric_option == 1 || metric_option == 2) {
                         for (List<Data> smaller_list : Group) {
                             int list_of_result = Upto_newcase_or_newdeath_to_list(smaller_list, metric_option, sorted_list);
                             value_list.add(list_of_result);
-                            break;
                         }
                     }
                     break;
@@ -211,8 +209,6 @@ public class menu {
                     if (chosenday.getDate() == list_of_data.get(list_of_data.size() - 1).getDate()) {
                         current_up_to_date = current_up_to_date + chosenday.getNew_death();
                         last_day = current_up_to_date;
-                        chosenday.display();
-
                     } else {
                         current_up_to_date = current_up_to_date + chosenday.getNew_death();
                     }
@@ -323,10 +319,10 @@ public class menu {
     //Get group data option 3
     public static List<List<Data>> group_date_option_3(List<Data> list_of_data, int number_of_date_in_a_group){
         List<List<Data>> group_of_data = new ArrayList<>();
-        int amount_of_group = list_of_data.size()/number_of_date_in_a_group; //find the amount of group since the total % the amount of day/group = 0
-        for(int group_number= 0; group_number < amount_of_group; group_number++){
+        int amount_of_group = list_of_data.size() / number_of_date_in_a_group; //find the amount of group since the total % the amount of day/group = 0
+        for (int group_number = 0; group_number < amount_of_group; group_number++) {
             List<Data> smaller_list = new ArrayList<>(); // create a new list
-            for(int i = 0; i < number_of_date_in_a_group; i++){ // i = the day already in the group
+            for (int i = 0; i < number_of_date_in_a_group; i++) { // i = the day already in the group
                 int current_index = group_number * number_of_date_in_a_group + i;
                 smaller_list.add(list_of_data.get(current_index));      // add element for a list and in this case (1 group contain 1 day)
             }
