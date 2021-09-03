@@ -401,7 +401,8 @@ public class menu {
                 for (Data chosendate : sorted_list) {
                     if (chosendate.getDate().isEqual(selected)) {
                         int index = sorted_list.indexOf(chosendate);
-                        if (index >= select_day) {
+                        if (sorted_list.size()-index > select_day) {
+
                             LocalDate end_date = selected.plusDays(select_day); //get the end date
                             /* getting the end date */
                             return get_date_between_2_date(selected, end_date);
@@ -456,7 +457,7 @@ public class menu {
                 for(Data chosendate: sorted_list){
                     if(chosendate.getDate().isEqual(selected)){
                         int index = sorted_list.indexOf(chosendate);
-                        if(index <= select_day){
+                        if(index >= select_day){
                             LocalDate start_date = selected.minusDays(select_day); //get the starting date
                             return get_date_between_2_date(start_date, selected);
                         }
