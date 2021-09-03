@@ -23,7 +23,6 @@ public class menu {
                 3. A number of days or weeks to a particular date
                 """);
         int date_type_input = Integer.parseInt(sc.nextLine());
-        System.out.println(location);
         List<LocalDate> date_being_used;
         if (date_type_input == 1){
             date_being_used = get_date_option_1(sc, formatter);
@@ -93,17 +92,11 @@ public class menu {
                     List<Integer> vaccinated_amount = turn_vaccinated_amount_new_total_method_into_int_list(smaller_list, information, formatter, location);
                     value_list.add(SumDataInAList(vaccinated_amount));
                 }
-                for(int test: value_list){
-                    System.out.println(test);
-                }
             }
             if(metric_option == 1 || metric_option == 2){
                 for(List<Data> smaller_list : Group){
                     List<Integer> list_of_result = get_new_case_or_death_to_list(smaller_list, metric_option);
                     value_list.add(SumDataInAList(list_of_result));
-                }
-                for(int test: value_list){
-                    System.out.println(test);
                 }
             }
         }
@@ -115,22 +108,19 @@ public class menu {
                     int vaccinated_amount = get_up_to_vaccinated(smaller_list, smallest_value);
                     value_list.add(vaccinated_amount);
                 }
-                for(int test: value_list){
-                    System.out.println(test);
-                }
             }
             if(metric_option == 1 || metric_option == 2){
                 for(List<Data> smaller_list : Group){
                     int list_of_result = Upto_newcase_or_newdeath_to_list(smaller_list, metric_option, location, information);
                     value_list.add(list_of_result);
                 }
-                for(int test: value_list){
-                    System.out.println(test);
-                }
             }
         }
-        Map<String, Integer> calculated_data = map_the_group(key_list, value_list);
-        //Calculated data
+        DataDisplay result = chooseDisplay();
+        for(int i= 0; i < key_list.size(); i++){
+            result.addDataPoint(key_list.get(i), value_list.get(i));
+        }
+        result.display();
 
     }
 
@@ -188,7 +178,6 @@ public class menu {
 
                     } else {
                         current_up_to_date = current_up_to_date + choosenday.getNew_death();
-
                     }
                 }
             }
@@ -449,6 +438,26 @@ public class menu {
             sum += number;
         }
         return sum;
+    }
+    public static DataDisplay chooseDisplay() {
+        System.out.println("There are 2 display");
+        System.out.println("1. Tabular");
+        System.out.println("2. Chart");
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("Your option: ");
+            int op = sc.nextInt();
+            if (op == 1) {
+                return new TabularDisplay();
+            }
+            else if (op == 2) {
+                return new ChartDisplay();
+            }
+            else {
+                System.out.println("There is an error in your option");
+                System.out.println("Please choose the available number of the option");
+            }
+        }
     }
 }
 
