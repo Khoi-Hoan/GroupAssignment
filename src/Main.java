@@ -2,15 +2,6 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 import java.time.format.DateTimeFormatter;
-public class Main {
-    public static void main(String[] args) throws IOException {
-        HashMap<String, Data> dataHashMap = Data.readFile();
-        dataHashMap.size();
-    }
-}
-
-
-
 class Data {
     String iso_code;
     String continent;

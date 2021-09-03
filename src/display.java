@@ -1,40 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
-
-class display{
-    public static void main(String[] args) {
-        DataDisplay result = chooseDisplay();
-        result.addDataPoint("02/13/2021 - 02/16/2021", 32132143);
-        result.addDataPoint("02/21/2021 - 02/16/2021",92135321);
-        result.addDataPoint("02/31/2021 - 03/31/2021",74266321);
-        result.display();
-
-    }
-    public static DataDisplay chooseDisplay() {
-        System.out.println("There are 2 display");
-        System.out.println("1. Tabular");
-        System.out.println("2. Chart");
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.print("Your option: ");
-            int op = sc.nextInt();
-            if (op == 1) {
-                return new TabularDisplay();
-            }
-            else if (op == 2) {
-                return new ChartDisplay();
-            }
-            else {
-                System.out.println("There is an error in your option");
-                System.out.println("Please choose the available number of the option");
-            }
-        }
-    }
-
-}
-
-
-
 abstract class DataDisplay {
     ArrayList<String> groups;
     ArrayList<Integer> values;
@@ -55,15 +19,15 @@ class TabularDisplay extends DataDisplay {
     @Override
     public void display() {
         // Making table form
-        System.out.println("-----------------------------------------------------------");
-        System.out.format("%c %21s %6c %10s %10c\n",'|', "Range(First date- Last date)", '|', "Value",'|');
-        System.out.println("|---------------------------------------------------------|");
+        System.out.println("----------------------------------------------------");
+        System.out.format("%c %21s %6c %10s %10c\n",'|', "Time Line", '|', "Value",'|');
+        System.out.println("|--------------------------------------------------|");
         // insert data into table
         for (int i = 0; i < groups.size(); i++) {
 
-            System.out.format("%c %9s %11c %12s %8c\n",'|', groups.get(i),'|', values.get(i),'|');
+            System.out.format("%c %21s %6c %10s %10c\n",'|', groups.get(i),'|', values.get(i),'|');
         }
-        System.out.println("-----------------------------------------------------------");
+        System.out.println("----------------------------------------------------");
     }
 }
 class ChartDisplay extends DataDisplay {

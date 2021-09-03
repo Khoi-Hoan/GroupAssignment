@@ -162,6 +162,7 @@ public class menu {
                     break Program;
                 } else if (continue_or_not == 'Y') {
                     System.out.println("We will start from the beginning again.");
+                    break;
                 } else {
                     System.out.println("Please only write either N or Y");
                 }
